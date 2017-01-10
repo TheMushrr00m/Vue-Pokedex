@@ -5,7 +5,10 @@
                 <poke-item :name="pokemon.name" :id="pokemon.id" />
             </div>
             <div class="col-md-4">
-                <button class="btn btn-danger btn-lg pull-right" @click.prevent="loadMore">Load More...</button>
+                <button class="btn btn-danger btn-lg pull-right" 
+                    @click.prevent="loadMore">
+                    Load More...
+                </button>
             </div>
         </div>
     </div>
@@ -17,15 +20,19 @@
 
     export default {
         created() {
-            this.$http.get(`${config.BASE_PATH}pokemon`)
+            this.$http.get(`${config.BASE_PATH}`)
             .then((response) => {
-                this.pokemons = response.data.results.map((pokemon) => {
-                    let urlItems = pokemon.url.split('/').filter(Boolean)
-                    return {
-                        name: pokemon.name,
-                        id: urlItems[urlItems.length - 1]
-                    }
-                })
+                if(response.status === 200)
+                    this.pokemons = response.data.results.map((pokemon) => {
+                        let urlItems = pokemon.url.split('/').filter(Boolean)
+                        return {
+                            name: pokemon.name,
+                            id: urlItems[urlItems.length - 1]
+                        }
+                    })
+            })
+            .catch((error) => {
+                console.log(error)
             })
         },
         components: {
