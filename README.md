@@ -22,3 +22,11 @@ Created with Vue-cli - Vue-loader [docs for vue-loader](http://vuejs.github.io/v
 Read blog's post [La Espora del Hongo](http://www.laesporadelhongo.com/)
 
 Created with :heart: in Cancún :sunglasses:
+
+## Credits
+To [Paul Hallet](http://phalt.co/) for creating the PokeApi project, 
+since i'm using it in this project to recover the data.
+
+## TODO:
+* Add the option to load more pokemons
+* Vuex ?

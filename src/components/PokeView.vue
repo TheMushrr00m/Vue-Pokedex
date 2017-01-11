@@ -1,49 +1,23 @@
 <template>
     <div class="container">
     	<div class="col-md-12">
-    		<div class="col-md-offset-4" v-show="noPokemon">
-    			<img class="img-responsive" src="/src/assets/img/crying.gif"></img>
-    			<h2>
-    				{{errorMsg}}
-    			</h2>
-    		</div>
-    		<div class="" v-show="!noPokemon">
-    			<div class="col-md-8">
-	    			<div class="row">
-		    			<div class="col-md-6">
-			    			<img :src="pokemon.frontView" :alt="pokemon.name" class="img-responsive">
-			    		</div>
-			    		<div class="col-md-6">
-			    			<img :src="pokemon.backView" :alt="pokemon.name" class="img-responsive">
-			    		</div>
-		    		</div>
-			    	<div class="row">
-			    		<div class="col-md-6">
-			    			<img :src="pokemon.frontViewShiny" :alt="pokemon.name" class="img-responsive">
-			    		</div>
-			    		<div class="col-md-6">
-			    			<img :src="pokemon.backViewShiny" :alt="pokemon.name" class="img-responsive">
-			    		</div>
-		    		</div>
-	    		</div>
-    			<div class="col-md-4">
-	    			<h2>ID: {{pokemon.id}}</h2>
-	    			<h2>Name: {{pokemon.name}}</h2>
-	    			<h2>Height: {{pokemon.height}}</h2>
-	    			<h2>Weight: {{pokemon.weight}}</h2>
-	    		</div>
-    		</div>
+            <google-loader v-if="noPokemon === 0" />
+    		<no-info :errorMsg="errorMsg" v-else-if="noPokemon === 1" />
+    		<poke-info :pokemon="pokemon" v-else />
     	</div>
     </div>
 </template>
 
 <script>
+    import GoogleLoader from './GoogleLoader.vue'
+    import NoInfo from './NoInfo.vue'
+    import PokeInfo from './PokeInfo.vue'
 	import { config } from '../utils/config'
 
     export default{
     	data() {
     		return {
-    			noPokemon: true,
+    			noPokemon: 0,
     			errorMsg: "",
     			pokemon : {}
     		}
@@ -52,9 +26,10 @@
     		this.$http.get(`${config.BASE_PATH+this.$route.params.id}`)
     		.then((response) => {
     			if(!response.status.ok) {
-    				this.noPokemon = !this.noPokemon
+    				this.noPokemon = 1
     				this.errorMsg = response.statusText
     			}
+                this.noPokemon = 2
     			this.pokemon = {
     				backView: response.data.sprites.back_default,
     				backViewShiny: response.data.sprites.back_shiny,
@@ -69,9 +44,13 @@
     		.catch((error) => {
                 this.errorMsg = error.statusText
             })
-    	}
+    	},
+        components: {
+            GoogleLoader,
+            PokeInfo,
+            NoInfo
+        }
     }
 </script>
 
-<style>
-</style>
+<style></style>

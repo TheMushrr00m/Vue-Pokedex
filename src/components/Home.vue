@@ -1,8 +1,17 @@
 <template>
     <div class="container">
-        <h1 class="text-center">By: Gabriel Cueto &lt;TheMushr00m&gt; - @Mushr00m_Dev</h1>
+    	<div class="jumbotron">
+    		<h1>
+    			La Espora del Hongo
+    			<a href="http://www.laesporadelhongo.com/" class="btn btn-lg btn-primary">
+    				Visit
+				</a>
+    		</h1>
+    		<p class="small">Gabriel Cueto "TheMushr00m" - @Mushr00m_Dev</p>
+    		<p>&copy; 2017 - La Espora del hongo</p>
+    	</div>
         <p class="text-center">
-            <router-link to="/pokemons" class="btn btn-success btn-lg">Show Pokemons</router-link>
+            <router-link to="/pokemons" class="btn btn-success btn-lg">Visit Pokédex</router-link>
         </p>
     </div>
 </template>

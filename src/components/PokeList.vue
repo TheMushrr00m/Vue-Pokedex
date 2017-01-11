@@ -1,20 +1,19 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4" v-for="pokemon in pokemons">
-                <poke-item :name="pokemon.name" :id="pokemon.id" />
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-danger btn-lg pull-right" 
-                    @click.prevent="loadMore">
-                    Load More...
-                </button>
-            </div>
+    <div class="col-md-12" v-if="pokemons.length === 0">
+        <google-loader />
+    </div>
+    <div class="row" v-else>
+        <div class="col-md-4" v-for="pokemon in pokemons">
+            <poke-item :name="pokemon.name" :id="pokemon.id" />
+        </div>
+        <div class="col-md-12">
+            <router-link to="/" class="btn btn-info btn-lg btn-block">Return To Home</router-link>
         </div>
     </div>
 </template>
 
 <script>
+    import GoogleLoader from './GoogleLoader.vue'
     import PokeItem from './PokeItem.vue'
     import { config } from '../utils/config'
 
@@ -36,6 +35,7 @@
             })
         },
         components: {
+            GoogleLoader,
             PokeItem
         },
         data () {
@@ -52,5 +52,4 @@
 </script>
 
 <style>
-    #app { margin: 4vh 0; }
 </style>
