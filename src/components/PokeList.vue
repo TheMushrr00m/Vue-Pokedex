@@ -1,13 +1,13 @@
 <template>
-    <div class="col-md-12" v-if="pokemons.length === 0">
-        <google-loader />
-    </div>
-    <div class="row" v-else>
-        <div class="col-md-4" v-for="pokemon in pokemons">
-            <poke-item :name="pokemon.name" :id="pokemon.id" />
-        </div>
-        <div class="col-md-12">
-            <router-link to="/" class="btn btn-info btn-lg btn-block">Return To Home</router-link>
+    <div class="col-xs-12 col-md-12" >
+        <google-loader v-if="pokemons.length === 0" />
+        <div class="row" v-else>
+            <div class="col-md-4" v-for="pokemon in pokemons">
+                <poke-item :name="pokemon.name" :id="pokemon.id" />
+            </div>
+            <div class="col-md-12">
+                <router-link to="/" class="btn btn-info btn-lg btn-block">Return To Home</router-link>
+            </div>
         </div>
     </div>
 </template>

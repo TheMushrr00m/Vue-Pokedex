@@ -1,26 +1,22 @@
 <template>
     <div id="app">
-    	<div class="alert alert-dismissible alert-warning text-center">
-    		<button type="button" class="close" @click="closeAlert">&times;</button>
-    		<h4>Keep calm!</h4>
-    		<p>
-    			I'm still working on this project!
-    		</p>
-		</div>
-    	<div class="container">
-    		<h1 class="text-center">Pokédex with VueJS</h1>
-    		<router-view></router-view>
-    	</div>
+        <div class="container">
+            <alert-advice />
+            <div class="col-xs-12 col-md-12">
+        	   <h1 class="text-center">Pokédex with VueJS</h1>
+           </div>
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script>
+    import AlertAdvice from './components/AlertAdvice.vue'
+    
     export default {
-    	methods: {
-    		closeAlert(e) {
-    			e.target.parentNode.style.display = "none"
-    		}
-    	}
+        components: {
+            AlertAdvice
+        }
     }
 </script>
 

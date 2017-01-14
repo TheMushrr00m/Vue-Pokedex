@@ -4,8 +4,8 @@
 			<h3 class="panel-title text-center">{{pokemon.name | capitalize}}</h3>
 		</div>
 		<div class="panel-body">
-			<div class="row">
-				<div class="col-md-4">
+			<div class="row text-center">
+				<div class="col-xs-12 col-md-4">
 					<h2>Information</h2>
 					<div class="list-group">
 						<li class="list-group-item">ID: {{pokemon.id}}</li>
@@ -13,22 +13,22 @@
 						<li class="list-group-item">Weight: {{pokemon.weight}}</li>
 					</div>
 				</div>
-				<div class="col-md-8">
-					<div class="col-md-6">
+				<div class="col-xs-12 col-md-8">
+					<div class="col-xs-6 col-md-6">
 						<h2>Front Sprites</h2>
-						<div class="col-md-6">
+						<div class="col-xs-12 col-md-6">
 							<img :src="pokemon.frontViewShiny" :alt="pokemon.name" class="img-responsive">	
 						</div>
-						<div class="col-md-6">
+						<div class="col-xs-12 col-md-6">
 							<img :src="pokemon.frontView" :alt="pokemon.name" class="img-responsive">
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-xs-6 col-md-6">
 						<h2>Back Sprites</h2>
-						<div class="col-md-6">
+						<div class="col-xs-12 col-md-6">
 							<img :src="pokemon.backViewShiny" :alt="pokemon.name" class="img-responsive">
 						</div>
-						<div class="col-md-6">
+						<div class="col-xs-12 col-md-6">
 							<img :src="pokemon.backView" :alt="pokemon.name" class="img-responsive">
 						</div>
 					</div>

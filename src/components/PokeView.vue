@@ -1,10 +1,8 @@
 <template>
-    <div class="container">
-    	<div class="col-md-12">
-            <google-loader v-if="noPokemon === 0" />
-    		<no-info :errorMsg="errorMsg" v-else-if="noPokemon === 1" />
-    		<poke-info :pokemon="pokemon" v-else />
-    	</div>
+    <div class="col-xs-12 col-md-12">
+        <google-loader v-if="noPokemon === 0" />
+        <no-info :errorMsg="errorMsg" v-else-if="noPokemon === 1" />
+        <poke-info :pokemon="pokemon" v-else />
     </div>
 </template>
 

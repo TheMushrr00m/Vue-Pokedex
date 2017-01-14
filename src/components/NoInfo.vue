@@ -1,5 +1,5 @@
 <template>
-	<div class="col-md-12">
+	<div class="col-xs-12 col-md-12">
 		<img class="img-responsive" src="/src/assets/img/crying.gif"></img>
 		<h2>
 			{{errorMsg}}
